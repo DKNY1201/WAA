@@ -10,5 +10,6 @@
 	<h1>The result of calculator is</h1>
 	<p>Sum: ${calculator.sum}</p>
 	<p>Product: ${calculator.product}</p>
+	<h1>${param.greeting}</h1>
 </body>
 </html>
