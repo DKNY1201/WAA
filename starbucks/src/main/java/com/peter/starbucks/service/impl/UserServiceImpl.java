@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	public boolean login(String username, String pass) {
 		String password = userRepository.getPassword(username);
 		
-		if (password == null || !password.equals(pass)) {
+		if (password == null || password.trim().isEmpty() || !password.equals(pass)) {
 			return false;
 		}
 		

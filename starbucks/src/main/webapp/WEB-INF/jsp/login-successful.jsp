@@ -5,10 +5,10 @@
 <title>Get advice</title>
 </head>
 <body>
-<h2>Login Successful - Get advice now</h2>
-<p />
-<form action="advice" method="get">
-<input type = "submit" value = "Get Advice"/>
-</form>
+	<h2>Login Successful - Get advice now</h2>
+	<p />
+	<form action="advice" method="get">
+		<input type = "submit" value = "Get Advice"/>
+	</form>
 </body>
 </html>
