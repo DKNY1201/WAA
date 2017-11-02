@@ -7,23 +7,30 @@
 <meta name="viewport" content="width=device-width,
 initial-scale=1">
 <title>Calculator</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style>
+	#errors {
+		color: red;
+	}
+</style>
 </head>
 <body>
 	<c:if test="${errors != null}">
+		<div id="errors">
+			<p>Error(s)!</p>
+			<ul>
+				<c:forEach var="error" items="${errors}">
+					<li>${error}</li>
+				</c:forEach>
+			</ul>
+		</div>
 
-		<p id="errors">Error(s)!
-		<ul>
-			<c:forEach var="error" items="${errors}">
-				<li>${error}</li>
-			</c:forEach>
-		</ul>
 	</c:if>
 
 	<form action="handleCalc" method="post">
 		<fieldset>
 			<legend>Calculator</legend>
-
 			<input name="add1" type="text" size="2" value="${calculator.add1}" />+
 			<input name="add2" type="text" size="2" value="${calculator.add2}" />=
 			<input name="sum" type="text" size="4" value="${calculator.sum }"

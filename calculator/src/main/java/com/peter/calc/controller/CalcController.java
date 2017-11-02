@@ -24,7 +24,7 @@ public class CalcController {
 	
 	@RequestMapping("/")
 	public String showCalcForm(Model model) {
-		return "calc-form";
+		return "calculator";
 	}
 
 	@RequestMapping(value = "/handleCalc")
@@ -32,18 +32,16 @@ public class CalcController {
 
 		List<String> errors = calculatorValidator.validate(calculator);
 		if (errors.isEmpty()) {
-
 			calculatorService.add(calculator);
 			calculatorService.mult(calculator);
 
 			model.addAttribute("calculator", calculator);
-			return "calc-result";
+			return "result";
 		} else {
-
 			// store errors and calculator in a scope variable for the view
 			model.addAttribute("errors", errors);
 			model.addAttribute("calculator", calculator);
-			return "calc-form";
+			return "calculator";
 		}
 
 	}

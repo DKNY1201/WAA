@@ -3,17 +3,13 @@ package com.peter.calc.domain;
 import java.io.Serializable;
 
 public class Calculator implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private Integer add1 = 0;
-	private Integer add2 = 0;
-	private Integer mult1 = 0;
-	private Integer mult2 = 0;
-	private Integer sum = 0;
-	private Integer product = 0;
+	private Integer add1;
+	private Integer add2;
+	private Integer mult1;
+	private Integer mult2;
+	private Integer sum;
+	private Integer product;
 
 	public Integer getAdd1() {
 		return add1;

@@ -15,22 +15,27 @@ public class CalculatorValidatorImpl implements CalculatorValidator {
 
 		Calculator calculator = (Calculator) object;
 
-		if (calculator.getAdd1() == null) {
-			errors.add("Add operands must have a value");
-		}
+		Integer  add1 = calculator.getAdd1();
+		Integer  add2 = calculator.getAdd2();
+		Integer  mult1 = calculator.getMult1();
+		Integer  mult2 = calculator.getMult2();
 
-		if (calculator.getAdd2() == null) {
-			errors.add("Add operands must have a value");
+		if (add1 == null) {
+			errors.add("First input for Adding is missing");
 		}
 		
-		if (calculator.getMult1() == null) {
-			errors.add("Multiply operands must have a value");
+		if (add2 == null) {
+			errors.add("Second input for Adding is missing");
 		}
-
-		if (calculator.getMult2() == null) {
-			errors.add("Multiply operands must have a value");
+		
+		if (mult1 == null) {
+			errors.add("First input for Multiplication is missing");
 		}
-
+		
+		if (mult2 == null) {
+			errors.add("Second input for Multiplication is missing");
+		}
+		
 		return errors;
 	}
 }
