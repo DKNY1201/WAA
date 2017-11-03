@@ -1,6 +1,8 @@
 package com.quytran.webstore.service.impl;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.quytran.webstore.domain.Product;
@@ -29,5 +31,21 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getProductsByCategory(String category) {
 		return productRepository.getProductsByCategory(category);
+	}
+
+	@Override
+	public List<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
+		return productRepository.getProductsByFilter(filterParams);
+	}
+
+	@Override
+	public Product getProductById(String productID) {
+		return productRepository.getProductById(productID);
+	}
+
+	@Override
+	public List<Product> getProductsByMultiCriteria(String category, String brand,
+			Map<String, List<String>> filterParams) {
+		return productRepository.getProductsByMultiCriteria(category, brand, filterParams);
 	}
 }
