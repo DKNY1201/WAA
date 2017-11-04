@@ -48,4 +48,9 @@ public class ProductServiceImpl implements ProductService {
 			Map<String, List<String>> filterParams) {
 		return productRepository.getProductsByMultiCriteria(category, brand, filterParams);
 	}
+
+	@Override
+	public void addProduct(Product product) {
+		productRepository.addProduct(product);
+	}
 }
