@@ -37,7 +37,7 @@
 					<strong>Availble units in stock </strong> : ${product.unitsInStock}
 				</p>
 				<h4>${product.unitPrice}USD</h4>
-
+				<p><a href="<c:url value="/pdf/${product.productId}.pdf"></c:url>">Download manual</a></p>
 				<p>
 					<a href="<spring:url value="/market/products" />" class="btn btn-default"> 
 						<span class="glyphicon-hand-left glyphicon"></span> back

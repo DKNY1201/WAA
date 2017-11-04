@@ -19,6 +19,7 @@ public class Product implements Serializable {
 	private boolean discontinued;
 	private String condition;
 	private MultipartFile productImage;
+	private MultipartFile productManual;
 
 	public Product() {
 		super();
@@ -30,14 +31,6 @@ public class Product implements Serializable {
 		this.unitPrice = unitPrice;
 	}
 	
-	public MultipartFile getProductImage() {
-		return productImage;
-	}
-
-	public void setProductImage(MultipartFile productImage) {
-		this.productImage = productImage;
-	}
-
 	public String getProductId() {
 		return productId;
 	}
@@ -116,6 +109,22 @@ public class Product implements Serializable {
 
 	public void setCondition(String condition) {
 		this.condition = condition;
+	}
+	
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+	
+	public MultipartFile getProductManual() {
+		return productManual;
+	}
+
+	public void setProductManual(MultipartFile productManual) {
+		this.productManual = productManual;
 	}
 
 	// add setters and getters for all the fields here

@@ -94,15 +94,24 @@ public class ProductController {
 					StringUtils.arrayToCommaDelimitedString(suppressedFields));
 		}
 		
-		MultipartFile productImage = newProduct.getProductImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		
+		MultipartFile productImage = newProduct.getProductImage();
 		if (productImage != null && !productImage.isEmpty()) {
 			try {
 				productImage.transferTo(new File(rootDirectory + "/resources/images/" + newProduct.getProductId() + ".jpg"));
 			} catch (Exception e) {
 				throw new RuntimeException("Product Image saving failed", e);
 			}
-			
+		}
+		
+		MultipartFile productManual = newProduct.getProductManual();
+		if (productManual != null && !productManual.isEmpty()) {
+			try {
+				productManual.transferTo(new File(rootDirectory + "/resources/pdf/" + newProduct.getProductId() + ".pdf"));
+			} catch (Exception e) {
+				throw new RuntimeException("Product Manual saving failed", e);
+			}
 		}
 		
 		productService.addProduct(newProduct);
@@ -120,6 +129,7 @@ public class ProductController {
 				"category",
 				"unitsInStock",
 				"condition",
-				"productImage");
+				"productImage",
+				"productManual");
 	}
 }
