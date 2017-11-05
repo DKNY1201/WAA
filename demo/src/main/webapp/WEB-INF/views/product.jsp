@@ -9,6 +9,11 @@
 </head>
 <body>
 	<section>
+		<div class="pull-right" style="padding-right:50px">
+			<a href="${currentUrl}&language=en" >English</a> | <a href="${currentUrl}&language=nl" >Dutch</a>
+		</div>
+	</section>
+	<section>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Products</h1>
@@ -24,26 +29,26 @@
 				<h3>${product.name}</h3>
 				<p>${product.description}</p>
 				<p>
-					<strong>Item Code : </strong><span class="label label warning">${product.productId}
-					</span>
+					<strong><spring:message code="product.itemcode.label" /> : </strong>
+					<span class="label label warning">${product.productId}</span>
 				</p>
 				<p>
-					<strong>manufacturer</strong> : ${product.manufacturer}
+					<strong><spring:message code="product.manufacturer.label" /></strong> : ${product.manufacturer}
 				</p>
 				<p>
-					<strong>category</strong> : ${product.category}
+					<strong><spring:message code="product.category.label" /></strong> : ${product.category}
 				</p>
 				<p>
-					<strong>Availble units in stock </strong> : ${product.unitsInStock}
+					<strong><spring:message code="product.availableUnitInStock.label" /> </strong> : ${product.unitsInStock}
 				</p>
 				<h4>${product.unitPrice}USD</h4>
-				<p><a href="<c:url value="/pdf/${product.productId}.pdf"></c:url>">Download manual</a></p>
+				<p><a href="<c:url value="/pdf/${product.productId}.pdf"></c:url>"><spring:message code="product.downloadManual.label" /></strong></a></p>
 				<p>
 					<a href="<spring:url value="/market/products" />" class="btn btn-default"> 
-						<span class="glyphicon-hand-left glyphicon"></span> back
+						<span class="glyphicon-hand-left glyphicon"></span> <spring:message code="product.back.label" /></strong>
 					</a> 
 					<a href="#" class="btn btn-warning btn-large"> 
-						<span class="glyphicon-shopping-cart glyphicon"> </span> Order Now
+						<span class="glyphicon-shopping-cart glyphicon"> </span> <spring:message code="product.orderNow.label" /></strong>
 					</a>
 				</p>
 			</div>

@@ -9,6 +9,11 @@
 </head>
 <body>
 	<section>
+		<div class="pull-right" style="padding-right:50px">
+			<a href="?language=en" >English</a> | <a href="?language=nl" >Dutch</a>
+		</div>
+	</section>
+	<section>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Products</h1>
@@ -65,7 +70,7 @@
 						<spring:message code="addProduct.form.unitInStock.label"/>
 					</label>
 					<div class="col-lg-10">
-						<form:input id="unitsInStock" path="unitsInStock" type="text" class="input-large" />
+						<form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
