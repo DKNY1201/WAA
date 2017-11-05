@@ -34,6 +34,7 @@ public class InMemoryCustomerRepository implements CustomerRepository {
 			customer.setName(rs.getString("NAME"));
 			customer.setAddress(rs.getString("ADDRESS"));
 			customer.setNoOfOrdersMade(rs.getLong("NO_ORDERS_MADE"));
+			customer.setRole(rs.getString("ROLE"));
 			return customer;
 		}
 	}
@@ -43,13 +44,14 @@ public class InMemoryCustomerRepository implements CustomerRepository {
 		String SQL = "INSERT INTO CUSTOMERS (ID,"
 				+ "NAME,"
 				+ "ADDRESS,"
-				+ "NO_ORDERS_MADE) "
-				+ "VALUES (:id, :name, :address, :noOrdersMade)";
+				+ "NO_ORDERS_MADE, ROLE) "
+				+ "VALUES (:id, :name, :address, :noOrdersMade, :role)";
 				Map<String, Object> params = new HashMap<>();
 				params.put("id", customer.getCustomerId());
 				params.put("name", customer.getName());
 				params.put("address", customer.getAddress());
 				params.put("noOrdersMade", customer.getNoOfOrdersMade());
+				params.put("role", customer.getRole());
 				jdbcTemplate.update(SQL, params);
 	}
 

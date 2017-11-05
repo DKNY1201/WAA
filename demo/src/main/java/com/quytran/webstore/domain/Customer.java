@@ -9,15 +9,17 @@ public class Customer implements Serializable {
 	String name;
 	String address;
 	long noOfOrdersMade;
+	String role;
 	
 	public Customer() {}
 	
-	public Customer(String customerId, String name, String address, long noOfOrdersMade) {
+	public Customer(String customerId, String name, String address, long noOfOrdersMade, String role) {
 		super();
 		this.customerId = customerId;
 		this.name = name;
 		this.address = address;
 		this.noOfOrdersMade = noOfOrdersMade;
+		this.role = role;
 	}
 
 	public String getCustomerId() {
@@ -52,4 +54,11 @@ public class Customer implements Serializable {
 		this.noOfOrdersMade = noOfOrdersMade;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

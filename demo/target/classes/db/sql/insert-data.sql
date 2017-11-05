@@ -5,6 +5,6 @@ INSERT INTO PRODUCTS VALUES('P1235', 'Dell Inspiron', 'Dell Inspiron 14-inch Lap
 INSERT INTO PRODUCTS VALUES('P1236', 'Nexus 7', 'Google Nexus 7 is the lightest 7 inch tablet with a quad-core S4 Pro procrssor', 300, 'Google', 'Tablet', 'New', 1000, 0, false);
 
 
-INSERT INTO CUSTOMERS VALUES('C1231', 'Rujuan Xing', '910 N 10TH ST, Fairfield IA, 52556', 10);
-INSERT INTO CUSTOMERS VALUES('C1232', 'John Smith', '1000 N 4TH ST, Fairfield IA, 52557', 10);
-INSERT INTO CUSTOMERS VALUES('C1233', 'Lily Black', '5230 Pterson ST, Austin TX, 92553', 10);
+INSERT INTO CUSTOMERS VALUES('C1231', 'Rujuan Xing', '910 N 10TH ST, Fairfield IA, 52556', 10, 'user');
+INSERT INTO CUSTOMERS VALUES('C1232', 'John Smith', '1000 N 4TH ST, Fairfield IA, 52557', 10, 'admin');
+INSERT INTO CUSTOMERS VALUES('C1233', 'Lily Black', '5230 Pterson ST, Austin TX, 92553', 10, 'user');

@@ -22,7 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.formLogin().defaultSuccessUrl("/market/products/add").failureUrl("/login?error");
 		httpSecurity.logout().logoutSuccessUrl("/login?logout");
 		httpSecurity.exceptionHandling().accessDeniedPage("/login?accessDenied");
-		httpSecurity.authorizeRequests().antMatchers("/").permitAll().antMatchers("/**/add").access("hasRole('ADMIN')")
+		httpSecurity.authorizeRequests()
+				.antMatchers("/").permitAll()
+				.antMatchers("/**/add").access("hasRole('ADMIN')")
 				.antMatchers("/**/market/**").access("hasRole('USER')");
 		httpSecurity.csrf().disable();
 	}

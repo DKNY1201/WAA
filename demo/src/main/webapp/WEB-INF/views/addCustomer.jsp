@@ -8,6 +8,13 @@
 </head>
 <body>
 	<section>
+		<div class="pull-right" style="padding-right:50px">
+			<a href="?language=en" >English</a> | 
+			<a href="?language=nl" >Dutch</a> | 
+			<a href="<c:url value="/logout" />">Logout</a>
+		</div>
+	</section>
+	<section>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Customers</h1>
@@ -36,6 +43,15 @@
 					<div class="col-lg-10">
 						<form:input id="address" path="address" type="text" class="input-large" />
 						<form:input id="noOfOrdersMade" path="noOfOrdersMade" type="hidden" class="input-large" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="role">Role</label>
+					<div class="col-lg-10">
+						<form:select id="role" path="role">
+							<form:option value="user" label="User"/>
+							<form:option value="admin" label="Admin"/>
+						</form:select>
 					</div>
 				</div>
 				<div class="form-group">
