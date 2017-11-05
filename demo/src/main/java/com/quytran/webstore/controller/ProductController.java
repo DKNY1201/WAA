@@ -76,6 +76,9 @@ public class ProductController {
 	public String getProductById(@RequestParam("id") String productID, Model model, HttpServletRequest req) {
 		model.addAttribute("product", productService.getProductById(productID));
 		model.addAttribute("currentUrl", req.getRequestURL() + "?" + req.getQueryString());
+		System.out.println(req.getRequestURL());
+		System.out.println(req.getQueryString());
+		System.out.println(req.getContextPath());
 		return "product";
 	}
 
@@ -140,5 +143,10 @@ public class ProductController {
 		mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
 		mav.setViewName("productNotFound");
 		return mav;
+	}
+
+	@RequestMapping("/products/invalidPromoCode")
+	public String invalidPromoCode() {
+		return "invalidPromoCode";
 	}
 }
