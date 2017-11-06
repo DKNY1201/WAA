@@ -15,11 +15,15 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.quytran.webstore.validator.Category;
+import com.quytran.webstore.validator.ProductId;
+
 @XmlRootElement
 public class Product implements Serializable {
 	private static final long serialVersionUID = 3678107792576131001L;
 	
 	@Pattern(regexp="P[1-9]+", message="{Pattern.Product.productId.validation}")
+	@ProductId
 	private String productId;
 	
 	@Size(min = 4, max = 50, message = "{Size.Product.name.validation}")
@@ -32,7 +36,8 @@ public class Product implements Serializable {
 	private String description;
 	private String manufacturer;
 	
-	@NotBlank(message = "{NotBlank.Product.category.validation}")
+	@NotNull(message = "{NotNull.Product.category.validation}")
+	@Category
 	private String category;
 	
 	@Min(value = 0, message = "{Min.Product.unitsInStock.validation}")
