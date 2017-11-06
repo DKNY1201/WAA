@@ -1,7 +1,9 @@
 package com.quytran.webstore.config;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -35,6 +37,9 @@ import org.springframework.web.util.UrlPathHelper;
 import com.quytran.webstore.domain.Product;
 import com.quytran.webstore.interceptor.ProcessingTimeLogInterceptor;
 import com.quytran.webstore.interceptor.PromoCodeInterceptor;
+import com.quytran.webstore.validator.ProductImageValidator;
+import com.quytran.webstore.validator.ProductValidator;
+import com.quytran.webstore.validator.UnitsInStockValidator;
 
 @Configuration
 @EnableWebMvc
@@ -78,7 +83,7 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 		resolver.setDefaultEncoding("utf-8");
-		resolver.setMaxUploadSize(10240000);
+//		resolver.setMaxUploadSize(10240000);
 		return resolver;
 	}
 
@@ -143,5 +148,15 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public Validator getValidator() {
 		return validator();
+	}
+
+	@Bean
+	public ProductValidator productValidator() {
+		Set<Validator> springValidators = new HashSet<>();
+		springValidators.add(new UnitsInStockValidator());
+		springValidators.add(new ProductImageValidator());
+		ProductValidator productValidator = new ProductValidator();
+		productValidator.setSpringValidators(springValidators);
+		return productValidator;
 	}
 }

@@ -29,6 +29,7 @@ import com.quytran.webstore.domain.Product;
 import com.quytran.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.quytran.webstore.exception.ProductNotFoundException;
 import com.quytran.webstore.service.ProductService;
+import com.quytran.webstore.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/market")
@@ -36,6 +37,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ProductValidator productValidator;
 
 	@RequestMapping("/products")
 	public String list(Model model) {
@@ -138,6 +142,7 @@ public class ProductController {
 	public void initialiseBinder(WebDataBinder binder) {
 		binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category",
 				"unitsInStock", "condition", "productImage", "productManual", "language");
+		binder.setValidator(productValidator);
 	}
 
 	@ExceptionHandler(ProductNotFoundException.class)
