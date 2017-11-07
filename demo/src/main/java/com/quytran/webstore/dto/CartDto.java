@@ -1,4 +1,4 @@
-package com.packt.webstore.dto;
+package com.quytran.webstore.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
