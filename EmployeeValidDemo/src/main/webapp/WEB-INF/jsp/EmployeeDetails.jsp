@@ -12,7 +12,8 @@
         <h5>Details:</h5>
         First Name: ${employee.firstName}<br/>
         Last Name: ${employee.lastName}<br/>
-        Date of birth: ${employee.birthDate}
+        Date of birth: ${employee.birthDate}<br/>
+        Image: <img src="<c:url value="/image/${employee.id}.png" />" />
     </p>
 </div>
 </body>
