@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.quytran.webstore.domain.Customer;
 import com.quytran.webstore.service.CustomerService;
 
+@RequestMapping("/customers")
 @Controller
 public class CustomerController {
 	
 	@Autowired
 	CustomerService customerService;
 	
-	@RequestMapping("/customers")
+	@RequestMapping
 	public String customers(Model model) {
 		model.addAttribute("customers", customerService.getAllCustomers());
 		return "customers";
 	}
 	
-	@RequestMapping(value = "/customers/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String customerAddForm(@ModelAttribute("newCustomer") Customer customer, Model model) {
 		return "addCustomer";
 	}
 	
-	@RequestMapping(value = "/customers/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addCustomer(@ModelAttribute("newCustomer") Customer customer, Model model) {
 		customerService.addCustomer(customer);
 		return "redirect:/customers";
