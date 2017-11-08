@@ -24,7 +24,7 @@ public class CartMapper implements RowMapper<Cart> {
 		String SQL = String.format("SELECT * FROM CART_ITEM WHERE CART_ID = '%s'", id);
 		
 		// Get a collection of CART_ITEM
-		// Map that each element of that collection to each Domain object CartItem
+		// Map each element of that collection to each Domain object CartItem
 		List<CartItem> cartItems = jdbcTempleate.query(SQL, cartItemMapper);
 		cart.setCartItems(cartItems);
 		return cart;
