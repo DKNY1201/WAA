@@ -19,7 +19,7 @@ charset=ISO-8859-1">
 		</div>
 	</section>
 	<section class="container" ng-app="cartApp">
-		<div ng-controller="cartCtrl" nginit="initCartId('${cartId}')">
+		<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 			<div>
 				<a class="btn btn-danger pull-left" ng-click="clearCart()"> <span
 					class="glyphicon glyphicon-removesign"></ span> Clear Cart </a>
@@ -33,7 +33,7 @@ glyphicon"></span> Check out
 				<tr>
 					<th>Product</th>
 					<th>Unit price</th>
-					<th>Qauntity</th>
+					<th>Quantity</th>
 					<th>Price</th>
 					<th>Action</th>
 				</tr>

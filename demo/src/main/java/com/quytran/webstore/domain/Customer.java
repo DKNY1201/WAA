@@ -3,30 +3,28 @@ package com.quytran.webstore.domain;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-	
-	private static final long serialVersionUID = 7482752217723676267L;
-	String customerId;
-	String name;
-	String address;
-	long noOfOrdersMade;
-	String role;
-	
-	public Customer() {}
-	
-	public Customer(String customerId, String name, String address, long noOfOrdersMade, String role) {
+	private static final long serialVersionUID = 2284040482222162898L;
+	private Long customerId;
+	private String name;
+	private Address billingAddress;
+	private String phoneNumber;
+
+	public Customer() {
 		super();
-		this.customerId = customerId;
-		this.name = name;
-		this.address = address;
-		this.noOfOrdersMade = noOfOrdersMade;
-		this.role = role;
+		this.billingAddress = new Address();
 	}
 
-	public String getCustomerId() {
+	public Customer(Long customerId, String name) {
+		this();
+		this.customerId = customerId;
+		this.name = name;
+	}
+
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -38,27 +36,48 @@ public class Customer implements Serializable {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 
-	public long getNoOfOrdersMade() {
-		return noOfOrdersMade;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setNoOfOrdersMade(long noOfOrdersMade) {
-		this.noOfOrdersMade = noOfOrdersMade;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getRole() {
-		return role;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (customerId == null) {
+			if (other.customerId != null)
+				return false;
+		} else if (!customerId.equals(other.customerId))
+			return false;
+		return true;
 	}
 }

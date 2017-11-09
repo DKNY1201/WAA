@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void addCustomer(Customer customer) {
-		customer.setNoOfOrdersMade(0);
+//		customer.setNoOfOrdersMade(0);
 		customerRepository.addCustomer(customer);
 	}
 
