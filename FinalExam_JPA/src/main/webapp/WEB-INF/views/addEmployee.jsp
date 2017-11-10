@@ -43,13 +43,69 @@
 					<label class="control-label col-lg-2" for="lastName">Last Name</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="lastName" path="firstName" type="text" class="form:input-large"/>
+							<form:input id="lastName" path="lastName" type="text" class="form:input-large"/>
 							<form:errors path="lastName" cssClass="text-danger"/>
 						</div>
 					</div>
 				</div>
-
-	
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="age">Age</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="age" path="age" type="text" class="form:input-large"/>
+							<form:errors path="age" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="title">Title</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="title" path="title" type="text" class="form:input-large"/>
+							<form:errors path="title" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+				
+				<h3>Address</h3>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="address.street">Street</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="address.street" path="address.street" type="text" class="form:input-large"/>
+							<form:errors path="address.street" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="address.city">City</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="address.city" path="address.city" type="text" class="form:input-large"/>
+							<form:errors path="address.city" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="address.state">State</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="address.state" path="address.state" type="text" class="form:input-large"/>
+							<form:errors path="address.state" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="address.zipCode">Zip code</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="address.zipCode" path="address.zipCode" type="text" class="form:input-large"/>
+							<form:errors path="address.zipCode" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">

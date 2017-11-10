@@ -1,10 +1,13 @@
 package com.packt.webstore.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Employee {
@@ -20,6 +23,8 @@ public class Employee {
 
 	private int employeeNumber;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", nullable = false)
 	private Address address;
 
 	public int getId() {
@@ -70,4 +75,11 @@ public class Employee {
 		this.employeeNumber = employeeNumber;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 }

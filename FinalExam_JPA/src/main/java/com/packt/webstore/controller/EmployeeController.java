@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.packt.webstore.domain.Employee;
+import com.packt.webstore.service.EmployeeService;
   
 
  
@@ -20,21 +22,19 @@ import com.packt.webstore.domain.Employee;
 @RequestMapping({"/employees"})
 public class EmployeeController {
 	
- 
+	@Autowired
+	EmployeeService employeeService;
 	
  	@RequestMapping(value={"","/list"})
 	public String listEmployees(Model model) {
- 
- 		
+ 		model.addAttribute("employees", employeeService.findAll());
  		return "employees";
 	}
 	
   	@RequestMapping("/employee")
 	public String getEmployeeByNumber(Model model, @RequestParam("id") int employeeId) {
-
-  		// Replace
-  		Employee employee = new Employee();
-  		
+  		Employee employee = employeeService.locateOneEmployeeByHisNumber(employeeId);
+  		System.out.println(employee);
   		model.addAttribute("employee", employee);
 		return "employee";
 	}
@@ -46,9 +46,12 @@ public class EmployeeController {
 	}
 	   
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddNewEmployee(@ModelAttribute("newEmployee") Employee employeeToBeAdded) {
- 
+	public String processAddNewEmployee(@ModelAttribute("newEmployee") Employee employeeToBeAdded, BindingResult result) {
+		if (result.hasErrors()) {
+			return "addEmployee";
+		}
 		
+		employeeService.save(employeeToBeAdded);
 	   	return "redirect:/employees/list";
 	}
 	

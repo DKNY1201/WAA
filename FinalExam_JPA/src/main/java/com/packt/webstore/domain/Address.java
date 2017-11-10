@@ -7,7 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Address {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String street;
@@ -48,6 +49,4 @@ public class Address {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	
-	
 }
