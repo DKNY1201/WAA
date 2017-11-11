@@ -21,12 +21,10 @@ charset=ISO-8859-1">
 	<section class="container" ng-app="cartApp">
 		<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 			<div>
-				<a class="btn btn-danger pull-left" ng-click="clearCart()"> <span
-					class="glyphicon glyphicon-removesign"></ span> Clear Cart </a>
-				<a href="#" class="btn btn-success
-pull-right"> <span
-					class="glyphicon-shopping-cart
-glyphicon"></span> Check out
+				<a class="btn btn-danger pull-left" ng-click="clearCart()"> 
+					<span class="glyphicon glyphicon-removesign"></span> Clear Cart </a>
+				<a href= "<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success pull-right">
+					<span class="glyphicon-shopping-cart glyphicon"></span> Check out
 				</a>
 			</div>
 			<table class="table table-hover">
@@ -42,11 +40,11 @@ glyphicon"></span> Check out
 					<td>{{item.product.unitPrice}}</td>
 					<td>{{item.quantity}}</td>
 					<td>{{item.totalPrice}}</td>
-					<td><a href="#" class="label labeldanger"
-						ngclick="
-removeFromCart(item.product.productId)"> <span
-							class="glyphicon glyphiconremove" /></span> Remove
-					</a></td>
+					<td>
+						<a href="#" class="label labeldanger" ng-click="removeFromCart(item.product.productId)"> 
+							<span class="glyphicon glyphiconremove" /></span> Remove
+						</a>
+					</td>
 				</tr>
 				<tr>
 					<th></th>
@@ -56,11 +54,8 @@ removeFromCart(item.product.productId)"> <span
 					<th></th>
 				</tr>
 			</table>
-			<a href="<spring:url
-value="/market/products" />"
-				class="btn btn-default"> <span
-				class="glyphicon-hand-left
-glyphicon"></span> Continue shopping
+			<a href="<spring:url value="/market/products" />" class="btn btn-default"> 
+				<span class="glyphicon-hand-left glyphicon"></span> Continue shopping
 			</a>
 		</div>
 	</section>
